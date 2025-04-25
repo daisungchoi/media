@@ -1,0 +1,2 @@
+# Start the MediaLive channel manually (Terraform can't auto-start it)
+aws medialive start-channel --channel-id $(terraform output -raw medialive_channel_id)
