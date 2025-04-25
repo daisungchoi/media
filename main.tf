@@ -124,3 +124,10 @@ output "medialive_input_url" {
 output "mediapackage_hls_url" {
   value = aws_mediapackage_channel.hls_channel.hls_ingest.ingest_endpoints[0].url
 }
+
+# Required if you enable RTMP authentication
+resource "aws_medialive_input_security_group" "input_sg" {
+  whitelist_rules {
+    cidr = "0.0.0.0/0"  # Restrict to your IP in production!
+  }
+}
